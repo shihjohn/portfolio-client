@@ -1,0 +1,176 @@
+#experience {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  color: $white-color;
+  margin-bottom: 8rem;
+  @include respond(tab-land) {
+    margin-bottom: 4rem;
+  }
+  .collapse-text {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s ease-in-out;
+    &.expended {
+      height: 100px;
+    }
+    @include respond(phone) {
+      &.expended {
+        height: 140px;
+      }
+    }
+    @include respond(phone-xs) {
+      &.expended {
+        height: 100px;
+      }
+    }
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 16rem;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 80%;
+    width: 1px;
+    background: linear-gradient(
+      to bottom,
+      $dark-grey 1%,
+      $light-grey 6%,
+      $light-grey 50%,
+      $dark-grey 100%
+    );
+    @include respond(tab-land) {
+      top: 12rem;
+    }
+    @include respond(phone-xs) {
+      left: 25px;
+    }
+  }
+
+  .experience-wrapper {
+    margin: 0 -15px;
+    max-width: 960px;
+    text-align: left;
+    clear: both;
+    width: 50%;
+    color: $primary-color;
+    &:hover {
+      color: $secondary-color;
+      cursor: pointer;
+      .experience-wrapper__info-date:after {
+        background: $secondary-color !important;
+      }
+    }
+    &:nth-child(even) {
+      text-align: right;
+      float: left;
+      .experience-wrapper__info-date:after {
+        top: 5px;
+        right: -2rem;
+      }
+    }
+    &:nth-child(odd) {
+      float: right;
+      .experience-wrapper__info-date:after {
+        top: 5px;
+        left: -2rem;
+      }
+    }
+    @include respond(phone-xs) {
+      width: 100%;
+      margin: 0 0 1rem 0;
+      &:nth-child(even),
+      &:nth-child(odd) {
+        float: left;
+        text-align: left;
+        .experience-wrapper__info-date:after {
+          top: 5px;
+          left: -2rem;
+        }
+      }
+    }
+    &__info {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0 1rem 1rem;
+      p {
+        margin: 0;
+      }
+      &-date {
+        font: 300 1.4rem "Open Sans", sans-serif;
+        font-style: italic;
+        color: $meta-grey;
+        margin-left: 0.5rem;
+        &:after {
+          content: "";
+          position: absolute;
+          display: block;
+          border: 1px solid $light-grey;
+          background: $dark-grey;
+          width: 1rem;
+          height: 1rem;
+          border-radius: 50%;
+        }
+      }
+      &-company {
+        &-title {
+          font: 600 1.6rem "Poppins", sans-serif;
+        }
+      }
+      &-text {
+        background: rgba($grey, 0.95);
+        border-radius: 5px;
+        padding: 2rem;
+        box-shadow: rgba(2, 12, 27, 0.7) 0px 10px 30px -15px;
+        color: $light-grey;
+        font: 300 1.4rem "Open Sans", sans-serif;
+      }
+      @include respond(phone) {
+        padding: 0 0 1rem;
+        p {
+          margin-bottom: 0.5rem;
+        }
+        &-date {
+          font-size: 1.2rem;
+        }
+        &-company {
+          &-name,
+          &-title {
+            font-size: 1.4rem;
+            line-height: 1.4rem;
+          }
+        }
+        &-text {
+          position: relative;
+          font-size: 1.2rem;
+          padding: 1rem;
+          &:after,
+          &:before {
+            content: "|";
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            height: 1.2rem;
+            width: 1.2rem;
+            text-align: center;
+            border-radius: 50%;
+            color: $dark-grey;
+            font-size: 1rem;
+            line-height: 1rem;
+            font-weight: bold;
+          }
+          &:before {
+            transform: rotate(45deg);
+            background: $meta-grey;
+          }
+          &:after {
+            transform: rotate(315deg);
+          }
+        }
+      }
+    }
+  }
+}

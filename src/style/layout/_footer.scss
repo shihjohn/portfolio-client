@@ -1,0 +1,68 @@
+.footer {
+  // background-color: $dark-grey;
+  color: $white-color;
+  padding: 4.8rem 0;
+
+  @include respond(phone) {
+    border: 0px;
+  }
+
+  &__text {
+    color: darken(white, 50%);
+    font-size: 1.3rem;
+
+    a {
+      color: $primary-color;
+      font-size: 1.3rem;
+      transition: all 0.4s;
+      display: inline-block;
+      background-color: $dark-grey;
+      transition: color 0.4s ease-in;
+      &:hover,
+      &:active {
+        color: $secondary-color;
+        -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+.social-links {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 50px;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+
+  @include respond(phone) {
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    padding: 0;
+    background: none;
+    a {
+      color: $primary-color;
+      padding: 4px;
+      cursor: pointer;
+      transition: color 0.4s ease-in;
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+}
+
+.back-to-top i {
+  color: $white-color;
+  margin: 1rem 0 $default-font-size;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+  &:hover {
+    transform: translateY(-2px);
+  }
+}

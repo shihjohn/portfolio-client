@@ -1,0 +1,22 @@
+#header {
+  .navbar {
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    padding: 1rem 2rem;
+    ul {
+      li {
+        a {
+          &.active {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+  .cta-btn--resume {
+    font-size: 1.4rem;
+    margin: 5px 0 5px 10px;
+    padding: 0.5rem 1rem;
+  }
+}

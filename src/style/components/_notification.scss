@@ -1,0 +1,38 @@
+#notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+}
+.notification {
+  &-box {
+    z-index: 15;
+    position: fixed;
+    padding: 12px;
+
+    text-align: left;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $meta-grey;
+    background: $grey;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    span {
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    &.success {
+      color: $secondary-color;
+    }
+    &.error {
+      color: $red;
+    }
+  }
+}
