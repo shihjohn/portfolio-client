@@ -11,6 +11,8 @@ import mainImg2 from "../../../assets/images/projects/feature/rib-int.jpg";
 import mainMobileImg2 from "../../../assets/images/projects/feature/mobile_rib-int.jpg";
 import mainImg3 from "../../../assets/images/projects/feature/portfolio.jpg";
 import mainMobileImg3 from "../../../assets/images/projects/feature/mobile_portfolio.jpg";
+import mainImg4 from "../../../assets/images/projects/feature/saas-ai.jpg";
+import mainMobileImg4 from "../../../assets/images/projects/feature/mobile_saas-ai.jpg";
 
 interface ProjectImage {
   mainImg1: string;
@@ -19,6 +21,8 @@ interface ProjectImage {
   mainMobileImg2: string;
   mainImg3: string;
   mainMobileImg3: string;
+  mainImg4: string;
+  mainMobileImg4: string;
 }
 const img: ProjectImage = {
   mainImg1,
@@ -27,6 +31,8 @@ const img: ProjectImage = {
   mainMobileImg2,
   mainImg3,
   mainMobileImg3,
+  mainImg4,
+  mainMobileImg4,
 };
 
 const Features = () => {
