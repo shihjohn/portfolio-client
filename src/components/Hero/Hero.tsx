@@ -5,13 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import animationHero from "./../../assets/images/hero.json";
-import animationLoading from "./../../assets/images/loading.json";
+// import animationLoading from "./../../assets/images/loading.json";
 import { fetchContent } from "./../../api";
 import { heroData } from "../../assets/mock/data";
 import { HeroItem } from "../../types";
 
 const Header = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchContent("Hero"),
     queryKey: ["hero"],
     // staleTime: Infinity, // Won't refetch data in the background.
