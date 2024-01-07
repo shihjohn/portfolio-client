@@ -39,7 +39,7 @@ const Features = () => {
   const { data, error, isLoading, isError } = useQuery({
     queryFn: () => fetchProject("feature"),
     queryKey: ["feature"],
-    staleTime: Infinity,
+    // staleTime: Infinity,
   });
   if (isLoading) return <div>Loading...</div>;
   if (isError) return "An error has occurred: " + error.message;

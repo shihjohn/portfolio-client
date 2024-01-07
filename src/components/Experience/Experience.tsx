@@ -9,7 +9,7 @@ const Experience = () => {
   const { data, error, isLoading, isError } = useQuery({
     queryFn: () => fetchExperience(),
     queryKey: ["experiences"],
-    staleTime: Infinity,
+    // staleTime: Infinity,
   });
 
   // const [collapse, setCollapse] = useState(null);

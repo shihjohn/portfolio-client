@@ -33,7 +33,7 @@ const Others = () => {
   const { data, error, isLoading, isError } = useQuery({
     queryFn: () => fetchProject("other"),
     queryKey: ["other"],
-    staleTime: Infinity,
+    // staleTime: Infinity,
   });
   if (isLoading) return <div>Loading...</div>;
   if (isError) return "An error has occurred: " + error.message;

@@ -11,7 +11,7 @@ const Header = () => {
   const { data, error, isLoading, isError } = useQuery({
     queryFn: () => fetchContent("Hero"),
     queryKey: ["hero"],
-    staleTime: Infinity, // Won't refetch data in the background.
+    // staleTime: Infinity, // Won't refetch data in the background.
     // cacheTime: 0, // Never cache data and will fetch new data every time.
   });
 

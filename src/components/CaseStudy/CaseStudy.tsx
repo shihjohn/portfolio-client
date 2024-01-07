@@ -17,7 +17,7 @@ const CaseStudy = () => {
   const { data, error, isLoading, isError } = useQuery({
     queryFn: () => fetchContent("Case Study"),
     queryKey: ["case"],
-    staleTime: Infinity,
+    // staleTime: Infinity,
   });
   interface Feature {
     name: string;
