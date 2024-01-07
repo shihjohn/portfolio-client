@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Title from "../../Title/Title";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProject } from "../../../api";
+import { otherProjectData } from "../../../assets/mock/data";
 import { ProjectItem } from "../../../types";
 import { BsWindow } from "react-icons/bs";
 
@@ -30,13 +32,23 @@ const img: ProjectImage = {
 };
 
 const Others = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchProject("other"),
     queryKey: ["other"],
     // staleTime: Infinity,
   });
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return "An error has occurred: " + error.message;
+
+  const [content, setContent] = useState<ProjectItem[] | null>(null);
+  useEffect(() => {
+    const content = data ? data : otherProjectData;
+    setContent(content);
+  }, [data]);
+
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return "An error has occurred: " + error.message;
+  if (isError) {
+    console.log("An error has occurred: ", error.message);
+  }
   return (
     <>
       <motion.div
@@ -48,8 +60,8 @@ const Others = () => {
       </motion.div>
 
       <div className="project-other-wrapper">
-        {data &&
-          data.map((other: ProjectItem, i: number) => {
+        {content &&
+          content.map((other: ProjectItem, i: number) => {
             const { _id, name, info, tech, url } = other;
             return (
               <motion.div

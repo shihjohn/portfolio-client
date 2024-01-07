@@ -1,20 +1,32 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Title from "../Title/Title";
 import { fetchContent } from "../../api";
 import { useQuery } from "@tanstack/react-query";
 import LittieAbout from "../Animation/LottieAbout";
+import { aboutData } from "../../assets/mock/data";
+import { aboutItem } from "../../types";
 
 // import image from "../../assets/images/profile.png";
 
 const About = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchContent("About"),
     queryKey: ["about"],
     staleTime: Infinity,
   });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return "An error has occurred: " + error.message;
+  const [content, setContent] = useState<aboutItem | null>(null);
+  useEffect(() => {
+    const content = data ? data : aboutData;
+    setContent(content);
+  }, [data]);
+
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return "An error has occurred: " + error.message;
+  if (isError) {
+    console.log("An error has occurred: ", error.message);
+  }
 
   return (
     <section id="about" className="w-full md:max-w-[1120px] md:m-auto">
@@ -42,22 +54,22 @@ const About = () => {
           className="about-wrapper__info flex-1 max-w-[480px] md:max-w-full m-auto"
         >
           <p className="about-wrapper__info-text">
-            {data.contents?.paragraphOne}
+            {content?.contents?.paragraphOne}
           </p>
           <p className="about-wrapper__info-text">
-            {data.contents?.paragraphTwo}
+            {content?.contents?.paragraphTwo}
           </p>
           <p className="about-wrapper__info-text">
-            {data.contents?.paragraphThree}
+            {content?.contents?.paragraphThree}
           </p>
           <p className="about-wrapper__info-text">
-            {data.contents?.paragraphFour}
+            {content?.contents?.paragraphFour}
           </p>
           <p className="about-wrapper__info-text">
-            {data.contents?.paragraphFive}
+            {content?.contents?.paragraphFive}
           </p>
           <p className="about-wrapper__info-text">
-            {data.contents?.paragraphSix}
+            {content?.contents?.paragraphSix}
           </p>
         </motion.div>
       </div>

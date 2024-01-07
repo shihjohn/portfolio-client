@@ -1,22 +1,32 @@
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
 import { fetchNav } from "../../api";
 import { Link } from "react-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import logo from "../../assets/images/logo.svg";
 import resume from "../../assets/resume/resume-JohnShih.pdf";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
+import { navData } from "../../assets/mock/data";
 
 const Header = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchNav(),
     queryKey: ["nav"],
   });
 
+  const [content, setContent] = useState([]);
+  useEffect(() => {
+    const content = data ? data : navData;
+    setContent(content);
+  }, [data]);
+
   const [toggle, setToggle] = useState(false);
 
-  if (isLoading) return <div>...Loading</div>;
-  if (isError) return "An error has occurred: " + error.message;
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return "An error has occurred: " + error.message;
+  if (isError) {
+    console.log("An error has occurred: ", error.message);
+  }
 
   return (
     <header id="header">
@@ -30,7 +40,7 @@ const Header = () => {
           <img src={logo} alt="hoobank" className="w-[100px] h-[40px]" />
         </Link>
         <ul className="list-none sm:flex hidden justify-end items-center flex-1">
-          {data.map((nav: any, index: number) => (
+          {content.map((nav: any, index: number) => (
             <motion.div
               key={nav._id}
               initial={{ opacity: 0, y: -20 }}
@@ -40,7 +50,7 @@ const Header = () => {
               <li
                 key={nav._id}
                 className={`font-poppins font-normal cursor-pointer text-[16px] hover:text-primary transition-all
-                ${index === data.length - 1 ? "mr-0" : "mr-8"}`}
+                ${index === content.length - 1 ? "mr-0" : "mr-8"}`}
               >
                 <Link
                   activeClass="active"
@@ -108,13 +118,13 @@ const Header = () => {
                 className={`bg-[#f8f9fa] absolute top-0 right-0 w-full h-screen p-6 z-5 bg-opacity-95 flex justify-center items-center`}
               >
                 <ul className="list-none flex flex-col">
-                  {data.map((nav: any, index: number) => (
+                  {content.map((nav: any, index: number) => (
                     <li key={nav._id} className={`p-4`}>
                       <Link
                         activeClass="active"
                         className={`font-poppins font-medium cursor-pointer text-[24px] hover:text-primary 
                         ${nav.url} 
-                        ${index === data.length - 1 ? "mb-0" : "mb-4"}`}
+                        ${index === content.length - 1 ? "mb-0" : "mb-4"}`}
                         to={nav.url}
                         spy={true}
                         offset={-60}

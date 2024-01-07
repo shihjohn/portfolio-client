@@ -1,24 +1,35 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Title from "../Title/Title";
 import Company from "./components/Company";
 import { useQuery } from "@tanstack/react-query";
 import { fetchExperience } from "../../api";
+import { experienceData } from "../../assets/mock/data";
 import { ExperienceItem } from "../../types";
 
 const Experience = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchExperience(),
     queryKey: ["experiences"],
     // staleTime: Infinity,
   });
+
+  const [content, setContent] = useState<ExperienceItem[] | null>(null);
+  useEffect(() => {
+    const content = data ? data : experienceData;
+    setContent(content);
+  }, [data]);
 
   // const [collapse, setCollapse] = useState(null);
   // const toggle = (id) => {
   //   setCollapse(collapse === id ? null : id);
   // };
 
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return "An error has occurred: " + error.message;
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return "An error has occurred: " + error.message;
+  if (isError) {
+    console.log("An error has occurred: ", error.message);
+  }
 
   return (
     <section id="experience" className="w-full md:max-w-[1120px] md:m-auto">
@@ -29,8 +40,8 @@ const Experience = () => {
       >
         <Title title="Experience" />
       </motion.div>
-      {data &&
-        data.map((experience: ExperienceItem, i: number) => {
+      {content &&
+        content.map((experience: ExperienceItem, i: number) => {
           return <Company key={experience._id} data={experience} index={i} />;
         })}
     </section>

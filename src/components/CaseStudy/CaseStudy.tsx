@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
@@ -12,19 +13,33 @@ import mainMobileImg from "../../assets/images/projects/feature/mobile_blackbox_
 import sectionOneImg from "../../assets/images/projects/feature/blackbox_dashboard_a.jpg";
 import sectionTwoImg from "../../assets/images/projects/feature/blackbox_dashboard_b.jpg";
 import sectionThreeImg from "../../assets/images/projects/feature/blackbox_dashboard_c.jpg";
+import { caseStudyData } from "../../assets/mock/data";
+import { CaseStudyItem } from "../../types";
+
+interface Feature {
+  name: string;
+  info: string;
+}
 
 const CaseStudy = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchContent("Case Study"),
     queryKey: ["case"],
     // staleTime: Infinity,
   });
-  interface Feature {
-    name: string;
-    info: string;
+
+  const [content, setContent] = useState<CaseStudyItem | null>(null);
+  useEffect(() => {
+    const content = data ? data : caseStudyData;
+    setContent(content);
+  }, [data]);
+
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return "An error has occurred: " + error.message;
+  if (isError) {
+    console.log("An error has occurred: ", error.message);
   }
-  if (isLoading) return <div>...Loading</div>;
-  if (isError) return "An error has occurred: " + error.message;
+
   return (
     <section id="work">
       <Lottie animationData={animationData} className="work-bg" />
@@ -57,10 +72,14 @@ const CaseStudy = () => {
               }}
             >
               <div data-tilt className="thumbnail rounded">
-                <img className="desktop" alt={data?.meta?.name} src={mainImg} />
+                <img
+                  className="desktop"
+                  alt={content?.meta?.name}
+                  src={mainImg}
+                />
                 <img
                   className="phone"
-                  alt={data?.meta?.name}
+                  alt={content?.meta?.name}
                   src={mainMobileImg}
                 />
               </div>
@@ -76,26 +95,26 @@ const CaseStudy = () => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href={data.meta.url || "#!"}
+                href={content?.meta.url || "#!"}
               >
                 <h3 className="project-wrapper__text-title">
-                  {data?.meta?.name}
+                  {content?.meta?.name}
                 </h3>
               </a>
               <span className="project-wrapper__text-nav">
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href={data.meta.url || "#!"}
+                  href={content?.meta.url || "#!"}
                 >
                   <BsWindow />
                 </a>
-                {data?.meta?.repo && (
+                {content?.meta?.repo && (
                   <a
                     target="_blank"
                     rel="noopener noreferrer"
                     className="cta-btn text-color-main"
-                    href={data?.meta?.repo}
+                    href={content?.meta?.repo}
                   >
                     Source Code
                   </a>
@@ -104,11 +123,11 @@ const CaseStudy = () => {
             </header>
             <main>
               <div className="project-wrapper__text-main">
-                <p>{data?.meta?.info}</p>
+                <p>{content?.meta?.info}</p>
               </div>
               <p className="project-wrapper__text-tech">
-                {data?.meta?.tech &&
-                  data?.meta?.tech.map((item: string) => (
+                {content?.meta?.tech &&
+                  content?.meta?.tech.map((item: string) => (
                     <span key={item}>{item}</span>
                   ))}
               </p>
@@ -130,9 +149,9 @@ const CaseStudy = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="work-wrapper__info"
           >
-            <p>{data.contents.sectionOne.intro}</p>
+            <p>{content?.contents.sectionOne.intro}</p>
             <ul>
-              {data.contents.sectionOne.features.map((feature: Feature) => {
+              {content?.contents.sectionOne.features.map((feature: Feature) => {
                 return (
                   <li key={feature.name}>
                     <strong>{feature.name}</strong>: {feature.info}
@@ -158,7 +177,7 @@ const CaseStudy = () => {
             className="work-wrapper__info"
           >
             <ul>
-              {data.contents.sectionTwo.features.map((feature: Feature) => {
+              {content?.contents.sectionTwo.features.map((feature: Feature) => {
                 return (
                   <li key={feature.name}>
                     <strong>{feature.name}</strong>: {feature.info}
@@ -184,13 +203,15 @@ const CaseStudy = () => {
             className="work-wrapper__info"
           >
             <ul>
-              {data.contents.sectionThree.features.map((feature: Feature) => {
-                return (
-                  <li key={feature.name}>
-                    <strong>{feature.name}</strong>: {feature.info}
-                  </li>
-                );
-              })}
+              {content?.contents.sectionThree.features.map(
+                (feature: Feature) => {
+                  return (
+                    <li key={feature.name}>
+                      <strong>{feature.name}</strong>: {feature.info}
+                    </li>
+                  );
+                }
+              )}
             </ul>
           </motion.div>
         </div>

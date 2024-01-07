@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProject } from "../../../api";
+import { featureProjectData } from "../../../assets/mock/data";
 import { ProjectItem } from "../../../types";
 import { BsWindow } from "react-icons/bs";
 
@@ -36,17 +38,27 @@ const img: ProjectImage = {
 };
 
 const Features = () => {
-  const { data, error, isLoading, isError } = useQuery({
+  const { data, error, isError } = useQuery({
     queryFn: () => fetchProject("feature"),
     queryKey: ["feature"],
     // staleTime: Infinity,
   });
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return "An error has occurred: " + error.message;
+
+  const [content, setContent] = useState<ProjectItem[] | null>(null);
+  useEffect(() => {
+    const content = data ? data : featureProjectData;
+    setContent(content);
+  }, [data]);
+
+  // if (isLoading) return <div>Loading...</div>;
+  // if (isError) return "An error has occurred: " + error.message;
+  if (isError) {
+    console.log("An error has occurred: ", error.message);
+  }
   return (
     <>
-      {data &&
-        data.map((feature: ProjectItem, i: number) => {
+      {content &&
+        content.map((feature: ProjectItem, i: number) => {
           return (
             <div className="project-wrapper" key={feature?._id}>
               <motion.div
