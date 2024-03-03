@@ -305,7 +305,7 @@ export const featureProjectData = [
       "Next.js 13",
       "React",
       "NextAuth.js",
-      "HTML",
+      "JSX",
       "Javascript",
       "Tailwind CSS",
       "Zustand",
