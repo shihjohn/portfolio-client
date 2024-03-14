@@ -180,6 +180,7 @@ export const caseStudyData = {
       "Service Worker (Workbox)",
       "Monorepo (Turborepo)",
       "DevOps",
+      ".NET Web API",
     ],
     url: "https://dashboard.black-box.com.au",
     repo: "",
