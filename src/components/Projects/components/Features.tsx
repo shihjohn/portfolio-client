@@ -9,8 +9,8 @@ import { BsWindow } from "react-icons/bs";
 
 import mainImg1 from "../../../assets/images/projects/feature/blackbox.jpg";
 import mainMobileImg1 from "../../../assets/images/projects/feature/mobile_blackbox.jpg";
-import mainImg2 from "../../../assets/images/projects/feature/nx-wtiness.jpg";
-import mainMobileImg2 from "../../../assets/images/projects/feature/mobile_nx-wtiness.jpg";
+import mainImg2 from "../../../assets/images/projects/feature/nx-witness.jpg";
+import mainMobileImg2 from "../../../assets/images/projects/feature/mobile_nx-witness.jpg";
 import mainImg3 from "../../../assets/images/projects/feature/portfolio.jpg";
 import mainMobileImg3 from "../../../assets/images/projects/feature/mobile_portfolio.jpg";
 import mainImg4 from "../../../assets/images/projects/feature/saas-ai.jpg";
