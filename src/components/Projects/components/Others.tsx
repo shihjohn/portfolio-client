@@ -7,7 +7,7 @@ import { otherProjectData } from "../../../assets/mock/data";
 import { ProjectItem } from "../../../types";
 import { BsWindow } from "react-icons/bs";
 
-import otherImg1 from "../../../assets/images/projects/other/nx-witness.jpg";
+import otherImg1 from "../../../assets/images/projects/other/rib-int.jpg";
 import otherImg2 from "../../../assets/images/projects/other/rib-software.jpg";
 import otherImg3 from "../../../assets/images/projects/other/itwocostx.jpg";
 import otherImg4 from "../../../assets/images/projects/other/itwocx.jpg";
