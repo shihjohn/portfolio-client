@@ -11,8 +11,8 @@ import mainImg1 from "../../../assets/images/projects/feature/blackbox.jpg";
 import mainMobileImg1 from "../../../assets/images/projects/feature/mobile_blackbox.jpg";
 import mainImg2 from "../../../assets/images/projects/feature/nx-witness.jpg";
 import mainMobileImg2 from "../../../assets/images/projects/feature/mobile_nx-witness.jpg";
-import mainImg3 from "../../../assets/images/projects/feature/portfolio.jpg";
-import mainMobileImg3 from "../../../assets/images/projects/feature/mobile_portfolio.jpg";
+import mainImg3 from "../../../assets/images/projects/feature/blackbox_tv.gif";
+// import mainMobileImg3 from "../../../assets/images/projects/feature/mobile_portfolio.jpg";
 import mainImg4 from "../../../assets/images/projects/feature/saas-ai.jpg";
 import mainMobileImg4 from "../../../assets/images/projects/feature/mobile_saas-ai.jpg";
 
@@ -22,7 +22,7 @@ interface ProjectImage {
   mainImg2: string;
   mainMobileImg2: string;
   mainImg3: string;
-  mainMobileImg3: string;
+  // mainMobileImg3: string;
   mainImg4: string;
   mainMobileImg4: string;
 }
@@ -32,7 +32,7 @@ const img: ProjectImage = {
   mainImg2,
   mainMobileImg2,
   mainImg3,
-  mainMobileImg3,
+  // mainMobileImg3,
   mainImg4,
   mainMobileImg4,
 };
@@ -86,13 +86,15 @@ const Features = () => {
                       alt={feature?.name}
                       src={img[("mainImg" + (i + 1)) as keyof ProjectImage]}
                     />
-                    <img
-                      className="phone"
-                      alt={feature?.name}
-                      src={
-                        img[("mainMobileImg" + (i + 1)) as keyof ProjectImage]
-                      }
-                    />
+                    {img[("mainMobileImg" + (i + 1)) as keyof ProjectImage] && (
+                      <img
+                        className="phone"
+                        alt={feature?.name}
+                        src={
+                          img[("mainMobileImg" + (i + 1)) as keyof ProjectImage]
+                        }
+                      />
+                    )}
                   </div>
                 </Tilt>
               </motion.div>
