@@ -65,7 +65,7 @@ const Others = () => {
             const { _id, name, info, tech, url } = other;
             return (
               <motion.div
-                key={_id}
+                key={`other_${_id}`}
                 initial={{ opacity: 0, y: 80 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, delay: 0.1 * i }}
