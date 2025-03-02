@@ -44,12 +44,12 @@ const Header = () => {
           transition={{ duration: 1, delay: 3 }}
         >
           <h1 className="hero-title">
-            Hi, my name is
+            {/* Hi, my name is
             <span className="hero-title-main text-color-main">
               {content?.contents.name || "John Shih"}
-            </span>
+            </span> */}
             <span className="hero-title-sub">
-              {content?.contents.subtitle || "Web Developer."}
+              {content?.contents.subtitle || "Web Developer"}
             </span>
           </h1>
           <p className="hero-wrapper__info-text w-full md:max-w-[500px]">

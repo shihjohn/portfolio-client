@@ -43,7 +43,7 @@ export const heroData = {
   img: "",
   contents: {
     name: "John Shih",
-    subtitle: "Web Developer.",
+    subtitle: "Web Developer",
     info: "I'm a web developer in Brisbane QLD specializing in front-end development. I enjoy creating interactive interfaces and delivering seamless user experiences using modern frontend technologies such as Vue.js and React.js.",
   },
   createdAt: "2023-12-21T05:26:24.990Z",
@@ -58,7 +58,7 @@ export const aboutData = {
   img: "profile.png",
   contents: {
     paragraphOne:
-      "Hello! I'm John, a dedicated and highly skilled Frontend Developer with over 8 years of web development experience.",
+      "Hello! I'm John Shih, a dedicated and highly skilled Developer with over 8 years of web development experience.",
     paragraphTwo:
       "I enjoy building visual appealing and user-friendly digital product for the web that seamlessly adapt to various devices.",
     paragraphThree:
