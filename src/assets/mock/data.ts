@@ -43,8 +43,8 @@ export const heroData = {
   img: "",
   contents: {
     name: "John Shih",
-    subtitle: "Web Developer",
-    info: "I'm a web developer in Brisbane QLD specializing in front-end development. I enjoy creating interactive interfaces and delivering seamless user experiences using modern frontend technologies such as Vue.js and React.js.",
+    subtitle: "Full Stack Developer",
+    info: "I'm a Brisbane-based Full Stack Developer specializing in front-end development. I’m passionate about building interactive and functional web apps that deliver seamless user experiences, leveraging modern technologies like Vue.js and React.js.",
   },
   createdAt: "2023-12-21T05:26:24.990Z",
   updatedAt: "2023-12-21T05:26:24.990Z",
@@ -58,17 +58,17 @@ export const aboutData = {
   img: "profile.png",
   contents: {
     paragraphOne:
-      "Hello! I'm John Shih, a dedicated and highly skilled Developer with over 8 years of web development experience.",
+      "Hello! I'm John Shih, a dedicated and experienced Full stack Developer with over 10 years of expertise in web development.",
     paragraphTwo:
-      "I enjoy building visual appealing and user-friendly digital product for the web that seamlessly adapt to various devices.",
+      "I specialize in creating functional, visually appealing, and user-friendly digital products for the web that seamlessly adapt to various devices, delivering exceptional user experiences.",
     paragraphThree:
-      "Proficient in core web technologies, including HTML, CSS and JavaScript, with a proven track record in frontend framework such as Vue 3, along with some experience in React and Typescript.",
+      "I am proficient in core web technologies, including HTML, CSS, and JavaScript, and have a proven track record of successfully delivering high-quality projects using modern frontend frameworks such as Vue 3, React, and TypeScript.",
     paragraphFour:
-      "I also have some backend experience in PHP, Node.js API, .NET Web API, complemented by solid knowledge of SQL and NoSQL databases, including MySQL and MongoDB.",
+      "In addition to my frontend expertise, I have hands-on experience with backend technologies, including C#, PHP, Node.js APIs, ASP.NET, and ASP.NET Web API. My skill set is further enhanced by solid knowledge of SQL and NoSQL databases, such as MySQL and MongoDB.",
     paragraphFive:
-      "In addition to my technical capabilities,  I possess skills in 'devops' and continuous delivery.",
+      "I also bring valuable experience in DevOps and continuous delivery, ensuring streamlined deployment processes and efficient workflows.",
     paragraphSix:
-      "Eager to expand my learning through hands-on projects and further develop my developer skills.",
+      "I am passionate about innovation and committed to continuous learning, eager to take on new challenges, enhance my skills through practical projects, and contribute to developing advanced web solutions.",
   },
   createdAt: "2023-12-21T05:27:04.453Z",
   updatedAt: "2023-12-22T07:01:51.335Z",
@@ -78,7 +78,7 @@ export const aboutData = {
 export const experienceData = [
   {
     _id: "6586dd40bf30806ac4ee7af7",
-    title: "Frontend Web Developer",
+    title: "Developer",
     company: "Blackbox",
     date: "APR 2021 - Present",
     info: "Working full time in Blackbox. Blackbox is Australia's largest timelapse provider that deliver user-friendly and high-tech solutions.",
@@ -182,6 +182,7 @@ export const caseStudyData = {
       "DevOps",
       "C#",
       ".NET Web API",
+      "Unit Testing",
     ],
     url: "https://dashboard.black-box.com.au",
     repo: "",
